@@ -13,7 +13,7 @@ import Image from "next/image";
 interface ProtectedLayoutClientProps {
   children: React.ReactNode;
   userEmail: string | null;
-  navItems: Array<{ href: string; label: string; icon: string }>;
+  navItems: Array<{ href: string; label: string; icon: React.ReactElement }>;
 }
 
 export function ProtectedLayoutClient({ children, userEmail, navItems }: ProtectedLayoutClientProps) {
@@ -76,7 +76,7 @@ export function ProtectedLayoutClient({ children, userEmail, navItems }: Protect
                     }`}
                   >
                     {isActive && <div className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-500" />}
-                    <span className={`text-lg transition-colors ${isActive ? "text-emerald-600" : "text-slate-400 group-hover:text-slate-600"}`}>{item.icon}</span>
+                    <span className={`transition-colors ${isActive ? "text-emerald-600" : "text-slate-400 group-hover:text-slate-600"}`}>{item.icon}</span>
                     {item.label}
                   </Link>
                 );
